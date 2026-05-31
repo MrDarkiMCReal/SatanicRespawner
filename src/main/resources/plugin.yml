@@ -1,0 +1,14 @@
+name: SatanicRespawner
+version: '${project.version}'
+main: org.mrdarkimc.SatanicRespawner.SatanicRespawner
+description: Плагин на респавнинг
+api-version: '1.21'
+author: MrDarkiMC
+website: https://t.me/doomgxard
+depend:
+  - PlaceholderAPI
+commands:
+  respawner:
+    usage: /respawner reload
+  fakekillandrespawn:
+    usage: /fakekillandrespawn %player%

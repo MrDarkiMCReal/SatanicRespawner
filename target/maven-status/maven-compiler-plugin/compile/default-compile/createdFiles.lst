@@ -1,0 +1,9 @@
+org\mrdarkimc\SatanicRespawner\Commands\ReloadCommand.class
+org\mrdarkimc\SatanicRespawner\CustomTitle.class
+org\mrdarkimc\SatanicRespawner\events\FastDeathEvent$1.class
+org\mrdarkimc\SatanicRespawner\events\TotemPopEvent.class
+org\mrdarkimc\SatanicRespawner\services\RespawnerService.class
+org\mrdarkimc\SatanicRespawner\events\FastDeathEvent.class
+org\mrdarkimc\SatanicRespawner\Commands\RespawnCommand.class
+org\mrdarkimc\SatanicRespawner\listeners\PlayerDeathListener.class
+org\mrdarkimc\SatanicRespawner\SatanicRespawner.class
