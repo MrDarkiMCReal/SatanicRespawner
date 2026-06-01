@@ -5,12 +5,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import org.mrdarkimc.SatanicLib.configsetups.Configs;
+import org.mrdarkimc.SatanicLib.ConfigAPI.Config;
 
 public class ReloadCommand implements CommandExecutor {
-    private Configs configCached;
+    private Config configCached;
 
-    public ReloadCommand(Configs configCached) {
+    public ReloadCommand(Config configCached) {
         this.configCached = configCached;
     }
 

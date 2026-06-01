@@ -34,7 +34,7 @@ public class PlayerDeathListener implements Listener {
             return;
         }
 
-        if (service.hasTotems(player)) {
+        if (service.isHoldingTotemInAnyHand(player)) {
             TotemPopEvent totemPopEvent = new TotemPopEvent(player);
             Bukkit.getPluginManager().callEvent(totemPopEvent);
             if (!totemPopEvent.isCancelled()) {

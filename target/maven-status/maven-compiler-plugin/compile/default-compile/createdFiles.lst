@@ -1,5 +1,4 @@
 org\mrdarkimc\SatanicRespawner\Commands\ReloadCommand.class
-org\mrdarkimc\SatanicRespawner\CustomTitle.class
 org\mrdarkimc\SatanicRespawner\events\FastDeathEvent$1.class
 org\mrdarkimc\SatanicRespawner\events\TotemPopEvent.class
 org\mrdarkimc\SatanicRespawner\services\RespawnerService.class

@@ -8,10 +8,3 @@ modules:
       z: 5452.5
       yaw: 43
       pitch: 8
-messages:
-  titlebar:
-    title: "%design_clr_glow%Возрождение"
-    subtitle: "%design_clr_primary%может стоит носить с собой тотемы?.."
-    fadeIn: 10
-    fadeOut: 20
-    stay:  90

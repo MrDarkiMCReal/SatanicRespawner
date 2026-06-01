@@ -11,16 +11,21 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import org.mrdarkimc.SatanicRespawner.CustomTitle;
+import org.mrdarkimc.SatanicLib.NotifyAPI.KeyedMessage;
+import org.mrdarkimc.SatanicLib.NotifyAPI.MessageDispatcher;
 import org.mrdarkimc.SatanicRespawner.events.FastDeathEvent;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class RespawnerService {
-    private final CustomTitle title = new CustomTitle();
+    private final MessageDispatcher title;
 
-    public boolean hasTotems(Player player) {
+    public RespawnerService() {
+        this.title = KeyedMessage.of("respawn-title");
+    }
+
+    public boolean isHoldingTotemInAnyHand(Player player) {
         PlayerInventory inv = player.getInventory();
         return inv.getItemInMainHand().getType() == Material.TOTEM_OF_UNDYING ||
                 inv.getItemInOffHand().getType() == Material.TOTEM_OF_UNDYING;

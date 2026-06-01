@@ -3,13 +3,16 @@ package org.mrdarkimc.SatanicRespawner;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.mrdarkimc.SatanicLib.ConfigAPI.Config;
+import org.mrdarkimc.SatanicLib.ConfigAPI.MessagesConfig;
 import org.mrdarkimc.SatanicLib.SatanicLib;
 import org.mrdarkimc.SatanicLib.Utils;
-import org.mrdarkimc.SatanicLib.configsetups.Configs;
 import org.mrdarkimc.SatanicRespawner.Commands.ReloadCommand;
 import org.mrdarkimc.SatanicRespawner.Commands.RespawnCommand;
 import org.mrdarkimc.SatanicRespawner.listeners.PlayerDeathListener;
 import org.mrdarkimc.SatanicRespawner.services.RespawnerService;
+
+import java.util.Locale;
 
 public class SatanicRespawner extends JavaPlugin implements Listener {
     private static SatanicRespawner instance;
@@ -18,7 +21,8 @@ public class SatanicRespawner extends JavaPlugin implements Listener {
         return instance;
     }
 
-    private Configs config;
+    private Config config;
+    private MessagesConfig messagesRu;
     private RespawnerService respawnerService;
 
     public RespawnerService getRespawnerService() {
@@ -32,10 +36,12 @@ public class SatanicRespawner extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        SatanicLib.setupLib(this);
         Utils.startUp("SatanicRespawner private");
         instance = this;
-        config = Configs.Defaults.setupConfig();
+        config = new Config(this,"config");
+        messagesRu = new MessagesConfig(this,"config", Locale.forLanguageTag("ru"));
+        messagesRu.load();
+
         respawnerService = new RespawnerService();
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(respawnerService), this);
         getServer().getPluginCommand("respawner").setExecutor(new ReloadCommand(config));

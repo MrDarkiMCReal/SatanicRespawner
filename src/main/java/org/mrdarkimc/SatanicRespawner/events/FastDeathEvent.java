@@ -15,10 +15,11 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mrdarkimc.SatanicRespawner.CustomTitle;
+import org.mrdarkimc.SatanicLib.NotifyAPI.MessageDispatcher;
 import org.mrdarkimc.SatanicRespawner.SatanicRespawner;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class FastDeathEvent extends Event implements Cancellable {
@@ -54,10 +55,10 @@ public class FastDeathEvent extends Event implements Cancellable {
     private boolean disableHealing = false;
     private boolean disableStatisticUpdate = false;
     private boolean isThrowingOriginalEventDisabled = false;
-    private CustomTitle title;
+    private MessageDispatcher title;
 
 
-    public FastDeathEvent(@NotNull Player player, @NotNull DamageSource damageSource, @NotNull List<ItemStack> drops, int droppedExp, @Nullable String deathMessage, Optional<Player> killer, CustomTitle title) {
+    public FastDeathEvent(@NotNull Player player, @NotNull DamageSource damageSource, @NotNull List<ItemStack> drops, int droppedExp, @Nullable String deathMessage, Optional<Player> killer, MessageDispatcher title) {
         this.player = player;
         this.damageSource = damageSource;
         this.drops = drops;
@@ -67,7 +68,7 @@ public class FastDeathEvent extends Event implements Cancellable {
         this.title = title;
     }
 
-    public CustomTitle getTitle() {
+    public MessageDispatcher getDeathMessageDispatcher() {
         return title;
     }
 
@@ -127,7 +128,7 @@ public class FastDeathEvent extends Event implements Cancellable {
     private void dropItems(Player player) {
         if (disableItemDrops) return;
         Location loc = player.getLocation();
-        drops.forEach(itemStack -> loc.getWorld().dropItemNaturally(loc, itemStack));
+        drops.stream().filter(Objects::nonNull).forEach(itemStack -> loc.getWorld().dropItemNaturally(loc, itemStack));
 
     }
 
