@@ -1,0 +1,8 @@
+messages:
+  respawn-title:
+    type: titlebar
+    title: "%design_clr_main%Respawn"
+    subtitle: "%design_clr_primary%maybe you should carry totems with you?.."
+    fadeIn: 10
+    fadeOut: 20
+    stay:  90

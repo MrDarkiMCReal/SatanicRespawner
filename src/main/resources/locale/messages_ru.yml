@@ -1,5 +1,6 @@
 messages:
   respawn-title:
+    type: titlebar
     title: "%design_clr_main%Возрождение"
     subtitle: "%design_clr_primary%может стоит носить с собой тотемы?.."
     fadeIn: 10
